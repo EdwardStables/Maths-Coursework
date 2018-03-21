@@ -1,0 +1,51 @@
+MATLAB COURSEWORK REPORT
+
+Exercise 4
+Created Script relaxation1.m which implements the relaxation method to solve Laplace's equation on the unit square. 
+
+
+Boundary conditions p1 = 0, p2 = 0, p3 = 1 for 0.2 <= x <= 0.8 0 otherwise, p4 = 0. 
+
+Using a step size of 0.02 and a maximum residue of 0.0001 gives the following figures as output.
+
+(relaxation1_1.png)
+
+
+?? Using a larger residue (0.001) means some of the values of the array remain unchanged from the initial value (mean of the boundary conditions) which were put in initially. This is because the gradient in the center of the contour is not as large as nearer the boundary and thus the residue does not converge as quickly, thus a smaller residue is needed ??
+
+(relaxation1_1a.png)
+
+
+Changing the gridsize (increasing h) increases the running time of the program. as the number of interior points is larger and thus more calculations have to be done per cycle of the program. reducing the residue also increases the running time of the program as more cycles are needed to reach the minimum value.
+
+
+Boundary conditions p1 = -sin(pi*x), p2 = sin(pi*y), p3 = -sin(pi*x), p4 = sin(pi*y) give 'saddle' (pringle? hyperbolic parabloid?) shape with equipotentials y = x and y = 1-x.
+
+(relaxation1_2.png)
+
+If boundary conditions are discontinuous at the corners then 
+
+
+
+
+Exercise 5
+
+impelements relaxation method but with forcing term (poisson's equation) on the unit square
+
+initial equation U = x^2 + y^2 + 2xy - 1, this implies ∇^2 = 2 
+
+for relaxation method:
+
+Unew = 1/4[U(i+1,j) + U(i-1,j) + U(i,j+1) + U(i,j-1) - g(x(i),y(j))*h^2)]
+residue = Unew - Uold
+
+for residue of zero error is due to the relative accuracy of floating point operations, and is negligible. (10^-14)
+
+boundary conditions are obtained by setting x = 0,a y = 0
+
+
+
+
+
+
+
